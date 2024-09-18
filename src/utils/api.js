@@ -15,3 +15,15 @@ export const getUserByUsername = (username) => {
         return user;
     });
 };
+
+export const getArticleById = (article_id) => {
+    return api.get(`/articles/${article_id}`).then(({ data: { article } }) => {
+        return article;
+    });
+};
+
+export const getCommentsByArticleId = (article_id) => {
+    return api.get(`/articles/${article_id}/comments`).then(({ data: { comments } }) => {
+        return comments;
+    });
+};

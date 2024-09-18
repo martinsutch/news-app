@@ -5,11 +5,11 @@ import ArticleCard from "./ArticleCard"
 const HomePage = () => {
     const [allArticles, setAllArticles] = useState([])
     const [isArticlesLoaded, setIsArticlesLoaded] = useState(false)
+    
     useEffect(()=>{
         getArticles().then((articles) => {
             setAllArticles(articles)
             setIsArticlesLoaded(true)
-            console.log(articles)
         })
     },[])
 
