@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { getArticleById } from "../utils/api"
 import { useLocation } from "react-router-dom";
+import { relativeDate } from "../utils/utils";
+import AuthorBox from "./AuthorBox";
 
 const FullArticle = ({ article_id }) => {
     const [article, setArticle] = useState();
@@ -29,7 +31,16 @@ const FullArticle = ({ article_id }) => {
                 <article className="card internal-column">
                     <span className="subtle-topic">{article.topic}</span>
                     <h2>{article.title}</h2>
-                    {bodyIsLoaded ? <>{article.body}</> : <p>Loading... please wait...</p>}
+                    {bodyIsLoaded ? <p>{article.body}</p> : <p>Loading... please wait...</p>}
+                    <div className="internal-row push-apart">
+                        <div className="internal-row push-left">
+                        <img className="icon" src={"/src/assets/date-outline.svg"}/>
+                        <span>{relativeDate(article.created_at)}</span>
+                    </div>
+                    <div className="internal-row push-right">
+                        <AuthorBox className="internal-row push-right" item={article}/>
+                    </div>
+            </div>
                 </article>
                 <div className="card internal-row push-evenly">
                     <div className="button internal-row">

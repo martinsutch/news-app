@@ -7,7 +7,7 @@ header {
 
 nav {
     background-color: gold;
-    height: 100px;
+    height: 50px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -20,7 +20,7 @@ nav {
     flex-direction: column;
     align-items: center;
     align-self: flex-start;
-    padding: 10px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 .page {
@@ -28,7 +28,7 @@ nav {
     justify-content: center;
     margin: 0 auto;
     gap: 20px;
-    padding: 20px 20px 120px 20px;
+    padding: 20px 20px 70px 20px;
     /* border: 1px solid black; */
 }
 
@@ -45,11 +45,10 @@ nav {
         left: auto;
         width: 50%;
         justify-content: right;
-        height: 50px;
     }
     .nav-button {
         flex-direction: row;
-        align-items: center;
+        align-self: center;
     }
     .page {
         margin-top: 50px;
@@ -90,6 +89,7 @@ nav {
 
 .push-apart {
     justify-content: space-between;
+    width: 100%;
 }
 
 .push-evenly {
