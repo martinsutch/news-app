@@ -27,3 +27,9 @@ export const getCommentsByArticleId = (article_id) => {
         return comments;
     });
 };
+
+export const patchArticleById = (article_id, data) => {
+    return api.patch(`/articles/${article_id}`, data).then(({ data: { comment } }) => {
+        return comment;
+    });
+};

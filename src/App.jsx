@@ -4,8 +4,9 @@ import HomePage from './components/HomePage';
 import ArticlePage from './components/ArticlePage';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
+import StatusBar from './components/StatusBar';
 
-function App() {
+const App = () => {
 
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/article/:article_id" element={<ArticlePage />} />
     </Routes>
+    <StatusBar />
     </>
   )
 }
