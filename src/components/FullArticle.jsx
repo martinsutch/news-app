@@ -1,58 +1,82 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getArticleById } from "../utils/api"
 import { useLocation } from "react-router-dom";
 import { relativeDate } from "../utils/utils";
 import AuthorBox from "./AuthorBox";
+import LikeButton from "./LikeButton";
+import { StatusContext } from "../contexts/StatusContext";
 
 const FullArticle = ({ article_id }) => {
     const [article, setArticle] = useState();
     const [articleIsLoaded, setArticleIsLoaded] = useState(false)
     const [bodyIsLoaded, setBodyIsLoaded] = useState(false)
     const { state } = useLocation(); //pre-loaded article passed from home
+    const [likes, setLikes] = useState(0)
+    const { status, setStatus } = useContext(StatusContext);
     
     useEffect(() => {
+        const loadingTimeout = setTimeout(() => {
+            setStatus({icon: "loading", msg: "Loading... please wait...", duration: 0})
+        }, 2000)
         if (state) {
             setArticle(state.article)
+            setLikes(state.votes)
             setArticleIsLoaded(true)
         }
-        getArticleById(article_id).then((updatedArticle) => {
+        getArticleById(article_id)
+        .then((updatedArticle) => {
             setArticle(updatedArticle)
+            setLikes(updatedArticle.votes)
             setArticleIsLoaded(true)
             setBodyIsLoaded(true)
+            setStatus((prevStatus) => {
+                if (prevStatus.duration === 0 && prevStatus.icon === "loading") {
+                    return { icon: "success", msg: "Page loaded!", colour: "green", duration: 2000 };
+                }
+                return prevStatus;
+            });
+            clearTimeout(loadingTimeout)
+        })
+        .catch(() => {
+            clearTimeout(loadingTimeout)
+            setStatus({icon: "error", msg: "There was an error fetching data. Please try again.", colour:"red", duration: 0})
         })
     },[])
     
     return(
         <>
-        {articleIsLoaded ? <>
                 <div className="card without-padding column">
-                    <img className="header-img" src={article.article_img_url} />
+                    {articleIsLoaded ? <img className="header-img" src={article.article_img_url} /> : <div className="header-img placeholder"></div> }
                 </div>
                 <article className="card internal-column">
-                    <span className="subtle-topic">{article.topic}</span>
-                    <h2>{article.title}</h2>
-                    {bodyIsLoaded ? <p>{article.body}</p> : <p>Loading... please wait...</p>}
+                    <span className={`subtle-topic ${articleIsLoaded ? "" : "placeholder"}`}>{articleIsLoaded ? article.topic : "Topic"}</span>
+                    <h2 className={articleIsLoaded ? "" : "placeholder"}>{articleIsLoaded ? article.title : "Article Title Loading"}</h2>
+                    {bodyIsLoaded ? <p>{article.body}</p> :<>
+                    <span className="placeholder">The article is loading...</span>
+                    <div className="placeholder internal-row push-apart">
+                        <span></span>
+                            <img className="status spin" src={`/src/assets/loading.svg`} />
+                        <span></span>
+                    </div>
+                    <span className="placeholder">Thanks for waiting for this to load...</span>
+                    </>}
                     <div className="internal-row push-apart">
                         <div className="internal-row push-left">
                         <img className="icon" src={"/src/assets/date-outline.svg"}/>
-                        <span>{relativeDate(article.created_at)}</span>
+                        <span className={articleIsLoaded ? "" : "placeholder"}>{articleIsLoaded ? relativeDate(article.created_at) : "Date created"}</span>
                     </div>
                     <div className="internal-row push-right">
-                        <AuthorBox className="internal-row push-right" item={article}/>
+                        {articleIsLoaded ? <AuthorBox key="load" className="internal-row push-right" item={article}/> : <AuthorBox key="placeholder" className="internal-row push-right" item={"placeholder"}/> }
                     </div>
             </div>
                 </article>
                 <div className="card internal-row push-evenly">
-                    <div className="button internal-row">
-                        <img className="icon" src={"/src/assets/like-outline.svg"}/>
-                        <span>{article.votes} likes</span>
-                    </div>
+                    <LikeButton likes={likes} setLikes={setLikes} article_id={article_id}/>
                     <div className="button internal-row">
                         <img className="icon" src={"/src/assets/comment-outline.svg"}/>
-                        <span>{article.comment_count} comments</span>
+                        <span>{articleIsLoaded ? article.comment_count + " comment" + (article.comment_count === 1 ? "" : "s") : "0 comments"}</span>
                     </div>
                 </div>
-            </> : "Loading... please wait..."}
         </>
     )
 }

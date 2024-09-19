@@ -19,7 +19,7 @@ const CommentCard = ({ comment }) => {
             <div className="internal-row push-apart">
                 <div className="internal-row push-left">
                     <img className="icon" src={"/src/assets/like-outline.svg"}/>
-                    <span>{comment.votes} likes</span>
+                    <span>{comment.votes} like{comment.votes === 1 ? "" : "s"}</span>
                 </div>
             </div>
         </div>
