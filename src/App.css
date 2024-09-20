@@ -80,7 +80,7 @@ nav {
 .column {
     display: flex;
     flex-direction: column;
-    /* border: 1px dashed red; */
+    border: 1px dashed red;
     gap: 20px;
     min-width: 280x;
     max-width: 384px;
@@ -279,4 +279,13 @@ textarea:read-only {
 
 .full-width {
     width: 100%;
+}
+
+.narrow {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+strong {
+    text-transform: capitalize;
 }
