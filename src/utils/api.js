@@ -29,7 +29,13 @@ export const getCommentsByArticleId = (article_id) => {
 };
 
 export const patchArticleById = (article_id, data) => {
-    return api.patch(`/articles/${article_id}`, data).then(({ data: { comment } }) => {
+    return api.patch(`/articles/${article_id}`, data).then(({ data: { article } }) => {
+        return article;
+    });
+};
+
+export const postComment = (article_id, data) => {
+    return api.post(`/articles/${article_id}/comments`, data).then(({ data: { comment } }) => {
         return comment;
     });
 };

@@ -90,7 +90,7 @@ nav {
 .card {
     max-width: 767px;
     border: 1px solid grey;
-    padding: 5px;
+    padding: 15px;
     border-radius: 20px;
 }
 
@@ -189,6 +189,10 @@ nav {
     border: 1px outset grey;
     background-color: gold;
     cursor: pointer;
+    min-width: 100px;
+    justify-content: center;
+    text-align: center;
+    color: #213547;
 }
 
 .button:hover {
@@ -224,8 +228,42 @@ nav {
     background-color: #EA4D3D;
 }
 
+.red-text {
+    color: #EA4D3D;
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
+}
+
+.form {
+    padding: 30px 30px 10px 30px;
+}
+
+input {
+    width: calc(100% - 20px);
+    border-radius: 15px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    border-radius: 15px;
+    border: 1px solid grey;
+    padding: 10px;
+    height: 100px;
+    resize: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+textarea:read-only {
+    color: lightgray;
+}
+
+.full-width {
+    width: 100%;
 }
