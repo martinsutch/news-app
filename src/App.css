@@ -1,291 +1,295 @@
 header {
-    background-color: gold;
-    height: 50px;
-    padding-left: 15px;
-    font-size: xx-small;
-    z-index: 10;
+  background-color: gold;
+  height: 50px;
+  padding-left: 15px;
+  font-size: xx-small;
+  z-index: 10;
 }
 
 nav {
-    background-color: gold;
-    height: 50px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    justify-content: space-evenly;
-    z-index: 30;
+  background-color: gold;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-evenly;
+  z-index: 30;
 }
 
 .status-bar {
-    background-color: gold;
-    height: 50px;
-    position: fixed;
-    bottom: 50px;
-    left: 10px;
-    width: calc(100% - 20px);
-    border-radius: 50px;
-    line-height: 1;
-    padding-right: 5px;
-    z-index: 20;
-    transform: translateY(50px);
-    transition: transform 0.5s ease;
+  background-color: gold;
+  height: 50px;
+  position: fixed;
+  bottom: 50px;
+  left: 10px;
+  width: calc(100% - 20px);
+  border-radius: 50px;
+  line-height: 1;
+  padding-right: 5px;
+  z-index: 20;
+  transform: translateY(50px);
+  transition: transform 0.5s ease;
 }
 
 .nav-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-start;
-    padding: 0px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0px 10px 0px 10px;
 }
 
 .page {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    gap: 20px;
-    padding: 20px 20px 70px 20px;
-    /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 20px 20px 70px 20px;
+  /* border: 1px solid black; */
 }
 
 @media (width > 1024px) {
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
-    nav {
-        top: 0;
-        right: 0;
-        left: auto;
-        width: 50%;
-        justify-content: right;
-    }
-    .status-bar {
-        bottom: 0;
-        justify-content: center;
-    }
-    .nav-button {
-        flex-direction: row;
-        align-self: center;
-    }
-    .page {
-        margin-top: 50px;
-        padding: 20px;
-    }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  nav {
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 50%;
+    justify-content: right;
+  }
+  .status-bar {
+    bottom: 0;
+    justify-content: center;
+  }
+  .nav-button {
+    flex-direction: row;
+    align-self: center;
+  }
+  .page {
+    margin-top: 50px;
+    padding: 20px;
+  }
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    border: 1px dashed red;
-    gap: 20px;
-    min-width: 280x;
-    max-width: 384px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed red;
+  gap: 20px;
+  min-width: 280x;
+  max-width: 384px;
+  width: 100%;
 }
 
 .card {
-    max-width: 767px;
-    border: 1px solid grey;
-    padding: 15px;
-    border-radius: 20px;
+  max-width: 767px;
+  border: 1px solid grey;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .internal-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .internal-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .push-apart {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .push-evenly {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .push-right {
-    justify-content: right;
+  justify-content: right;
 }
 
 .push-left {
-    justify-content: left;
+  justify-content: left;
 }
 
 .push-up {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .push-down {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 
 .subtle-topic {
-    text-transform: uppercase;
-    color: grey;
-    font-weight: lighter;
-    margin-left: 5px;
+  text-transform: uppercase;
+  color: grey;
+  font-weight: lighter;
+  margin-left: 5px;
 }
 
 .card-title {
-    margin: 5px;
+  margin: 5px;
 }
 
 .placeholder {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .round-img {
-    height: 35px;
-    width: 35px;
-    border-radius: 35px;
-    border: 1px solid grey;
+  height: 35px;
+  width: 35px;
+  border-radius: 35px;
+  border: 1px solid grey;
 }
 
 .square-img {
-    height: 150px;
-    width: 150px;
-    border-radius: 15px;
-    border: 1px solid grey;
-    object-fit: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  object-fit: cover;
 }
 
 .header-img {
-    width: 100%;
-    min-height: 200px;
-    border-radius: 20px;
-    border: 1px solid grey;
-    object-fit: cover;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  object-fit: cover;
 }
 
 .without-padding {
-    padding: 0px;
-    border: none;
+  padding: 0px;
+  border: none;
 }
 
 .placeholder {
-    background-color: lightgray;
-    border-color: transparent;
-    color: transparent;
+  background-color: lightgray;
+  border-color: transparent;
+  color: transparent;
 }
 
 .button {
-    padding: 5px 10px 5px 10px;
-    margin: 15px 0px 15px 0px;
-    border-radius: 100px;
-    border: 1px outset grey;
-    background-color: gold;
-    cursor: pointer;
-    min-width: 100px;
-    justify-content: center;
-    text-align: center;
-    color: #213547;
+  padding: 5px 10px 5px 10px;
+  margin: 15px 0px 15px 0px;
+  border-radius: 100px;
+  border: 1px outset grey;
+  background-color: gold;
+  cursor: pointer;
+  min-width: 100px;
+  justify-content: center;
+  text-align: center;
+  color: #213547;
 }
 
 .subtle {
-    padding: 5px 10px 5px 10px;
-    margin: 15px 0px 15px 0px;
-    border-radius: 100px;
-    border: 1px outset grey;
-    background-color: rgba(255, 217, 0, 0.1);
-    cursor: pointer;
-    min-width: 100px;
-    justify-content: center;
-    text-align: center;
-    color: #213547;
+  padding: 5px 10px 5px 10px;
+  margin: 15px 0px 15px 0px;
+  border-radius: 100px;
+  border: 1px outset grey;
+  background-color: rgba(255, 217, 0, 0.1);
+  cursor: pointer;
+  min-width: 100px;
+  justify-content: center;
+  text-align: center;
+  color: #213547;
 }
 
 .button:hover {
-    background-color: rgba(255, 217, 0, 0.8);
+  background-color: rgba(255, 217, 0, 0.8);
 }
 
 .button.disabled {
-    background-color: darkblue;
-    cursor: not-allowed;
-    pointer-events: none;
-    opacity: 0.5;
+  background-color: darkblue;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .status {
-    height: 40px;
-    width: 40px;
-    margin: 5px;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
 }
 
 .visible {
-    transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .spin {
-    animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 .green {
-    background-color: #64C466;
+  background-color: #64c466;
 }
 
 .red {
-    background-color: #EA4D3D;
+  background-color: #ea4d3d;
+}
+
+.yellow {
+  background-color: gold;
 }
 
 .red-text {
-    color: #EA4D3D;
+  color: #ea4d3d;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .form {
-    padding: 30px 30px 10px 30px;
+  padding: 30px 30px 10px 30px;
 }
 
 input {
-    width: calc(100% - 20px);
-    border-radius: 15px;
-    border: 1px solid grey;
-    padding: 10px;
+  width: calc(100% - 20px);
+  border-radius: 15px;
+  border: 1px solid grey;
+  padding: 10px;
 }
 
 textarea {
-    width: calc(100% - 20px);
-    border-radius: 15px;
-    border: 1px solid grey;
-    padding: 10px;
-    height: 100px;
-    resize: none;
-    font-size: inherit;
-    font-family: inherit;
+  width: calc(100% - 20px);
+  border-radius: 15px;
+  border: 1px solid grey;
+  padding: 10px;
+  height: 100px;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 textarea:read-only {
-    color: lightgray;
+  color: lightgray;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .narrow {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 strong {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
