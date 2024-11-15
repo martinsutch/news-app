@@ -12,7 +12,7 @@ const FullArticle = ({ article_id, isCommenting, setIsCommenting }) => {
     const [bodyIsLoaded, setBodyIsLoaded] = useState(false);
     const { state } = useLocation(); //pre-loaded article passed from home
     const [likes, setLikes] = useState(0);
-    const { status, setStatus } = useContext(StatusContext);
+    const { setStatus } = useContext(StatusContext);
 
     useEffect(() => {
         const loadingTimeout = setTimeout(() => {
